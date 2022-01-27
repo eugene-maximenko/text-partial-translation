@@ -1,40 +1,50 @@
-const englishOrigin = [
-  '"I am afraid, Watson, that I shall have to go, said Holmes."',
-];
-
-const russianOrigin = [
-  'Я босюсь, Ватсон, что мне придется уехать, - сказал Холмс.',
-];
-// =>
-
-const englishSplited = [
-  '"I',
-  'am afraid,',
-  'Watson,',
-  'that',
-  'I',
-  'shall have',
-  'to go",',
-  'said',
-  'Holmes."',
-];
-
-const russianSplited = [
-  'Я',
-  'босюсь,',
-  'Ватсон,',
-  'что',
-  'мне',
-  'придется',
-  'уехать',
-  '- сказал',
-  'Холмс.',
+const text = [
+  {
+    english: '"I',
+    russian: 'Я',
+  },
+  {
+    english: 'am afraid,',
+    russian: 'босюсь,',
+  },
+  {
+    english: 'Watson,',
+    russian: 'Ватсон,',
+  },
+  {
+    english: 'that',
+    russian: 'что',
+  },
+  {
+    english: 'I',
+    russian: 'мне',
+  },
+  {
+    english: 'shall have',
+    russian: 'придется',
+  },
+  {
+    english: 'to go",',
+    russian: 'уехать,',
+  },
+  {
+    english: 'said',
+    russian: '- сказал',
+  },
+  {
+    english: 'Holmes.',
+    russian: 'Холмс.',
+  },
 ];
 
 const usedIndexes = [];
 
 function generateRandomIndex(array) {
   const randomIndex = Math.floor(Math.random() * array.length);
+
+  if (usedIndexes.length === text.length) {
+    return;
+  }
 
   if (!usedIndexes.includes(randomIndex)) {
     return randomIndex;
@@ -43,13 +53,14 @@ function generateRandomIndex(array) {
   return generateRandomIndex(array);
 }
 
-for (let i = 0; i < englishSplited.length; i++) {
-  if (russianSplited.length !== englishSplited.length) {
-    throw new Error();
-  }
+for (let i = 0; i <= text.length; i++) {
+  let string = '';
+  const randomIndex = generateRandomIndex(text);
 
-  const randomIndex = generateRandomIndex(englishSplited);
-  englishSplited.splice(randomIndex, 1, russianSplited[randomIndex]);
-  console.log(englishSplited.join(' '));
+  string = string.concat(...text.map((e) => e.english).join(' '));
+  console.log(string, '\n');
+  if (i < text.length) {
+    text[randomIndex].english = text[randomIndex].russian;
+  }
   usedIndexes.push(randomIndex);
 }
