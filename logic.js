@@ -32,8 +32,28 @@ const text = [
     russian: '- сказал',
   },
   {
-    english: 'Holmes.',
-    russian: 'Холмс.',
+    english: 'Holmes,',
+    russian: 'Холмс,',
+  },
+  {
+    english: 'as',
+    russian: 'когда',
+  },
+  {
+    english: 'we',
+    russian: 'мы',
+  },
+  {
+    english: 'sat down together',
+    russian: 'сели',
+  },
+  {
+    english: 'to our breakfast',
+    russian: 'позавтракать',
+  },
+  {
+    english: 'one morning.',
+    russian: 'однажны утром.',
   },
 ];
 
