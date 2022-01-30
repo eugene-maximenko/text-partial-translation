@@ -1,86 +1,17 @@
-const text = [
-  {
-    english: '"I',
-    russian: 'Я',
-  },
-  {
-    english: 'am afraid,',
-    russian: 'босюсь,',
-  },
-  {
-    english: 'Watson,',
-    russian: 'Ватсон,',
-  },
-  {
-    english: 'that',
-    russian: 'что',
-  },
-  {
-    english: 'I',
-    russian: 'мне',
-  },
-  {
-    english: 'shall have',
-    russian: 'придется',
-  },
-  {
-    english: 'to go",',
-    russian: 'уехать,',
-  },
-  {
-    english: 'said',
-    russian: '- сказал',
-  },
-  {
-    english: 'Holmes,',
-    russian: 'Холмс,',
-  },
-  {
-    english: 'as',
-    russian: 'когда',
-  },
-  {
-    english: 'we',
-    russian: 'мы',
-  },
-  {
-    english: 'sat down together',
-    russian: 'сели',
-  },
-  {
-    english: 'to our breakfast',
-    russian: 'позавтракать',
-  },
-  {
-    english: 'one morning.',
-    russian: 'однажны утром.',
-  },
-];
+const {text} = require('./adventure-1-silver-blaze-part-1');
+const {generateRandomIndex, usedIndexes} = require("./generateRandomIndex");
+const {fillCurrentField} = require("./generateRandomIndex copy");
 
-const usedIndexes = [];
-
-function generateRandomIndex(array) {
-  const randomIndex = Math.floor(Math.random() * array.length);
-
-  if (usedIndexes.length === text.length) {
-    return;
-  }
-
-  if (!usedIndexes.includes(randomIndex)) {
-    return randomIndex;
-  }
-
-  return generateRandomIndex(array);
-}
+fillCurrentField(text, 'english')
 
 for (let i = 0; i <= text.length; i++) {
   let string = '';
   const randomIndex = generateRandomIndex(text);
 
-  string = string.concat(...text.map((e) => e.english).join(' '));
+  string = string.concat(...text.map((e) => e.current).join(' '));
   console.log(string, '\n');
   if (i < text.length) {
-    text[randomIndex].english = text[randomIndex].russian;
+    text[randomIndex].current = text[randomIndex].russian;
   }
   usedIndexes.push(randomIndex);
 }
