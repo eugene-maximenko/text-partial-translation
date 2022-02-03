@@ -16,5 +16,5 @@ fillCurrentField(text, 'english')
 //   usedIndexes.push(randomIndex);
 // }
 
-console.log(parseTextInSpecificLanguage(text, 'english'))
+console.log(parseTextInSpecificLanguage(text, 'russian'))
 

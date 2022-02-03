@@ -1,16 +1,14 @@
-const usedIndexes = [];
+function generateRandomIndex(textArray, usedIndexesArray) {
+    const randomIndex = Math.floor(Math.random() * textArray.length);
 
-function generateRandomIndex(array) {
-    const randomIndex = Math.floor(Math.random() * array.length);
-
-    if (usedIndexes.length === array.length) {
+    if (usedIndexesArray.length === textArray.length) {
         return;
     }
 
-    if (!usedIndexes.includes(randomIndex)) {
+    if (!usedIndexesArray.includes(randomIndex)) {
         return randomIndex;
     }
 
-    return generateRandomIndex(array);
+    return generateRandomIndex(textArray, usedIndexesArray);
 }
-module.exports = {generateRandomIndex, usedIndexes};
+module.exports = {generateRandomIndex};

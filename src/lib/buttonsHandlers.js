@@ -1,26 +1,20 @@
+const {generateRandomIndex} = require('../../generateRandomIndex')
+
 const parseTextInSpecificLanguage = (text, language) => {
 
     const textPiecesWithoutSpaces = text.map((e) => e[`${ language }`])
 
-    return textPiecesWithoutSpaces.join(" ")
+    return textPiecesWithoutSpaces
+}
+const pointer = null
+const textSnapShots = []
+const usedIndexesArray = [];
+
+const translateOneMoreWord = (snapShotArray, pointer,) => {
+
+    generateRandomIndex(text)
 }
 
-const generateRandomIndex = (text, usedIndexes) => {
-    const randomIndex = Math.floor(Math.random() * text.length);
-
-    if (usedIndexes.length < text.length) {
-
-        if (!usedIndexes.includes(randomIndex)) {
-            return randomIndex;
-        }
-
-        return generateRandomIndex(text);
-    }
-}
-
-const translateOneMoreWord = (text, pointer,) => {
-
-}
 
 module.exports = {
     parseTextInSpecificLanguage
