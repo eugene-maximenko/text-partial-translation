@@ -5,7 +5,7 @@ const {parseTextInSpecificLanguage} = require('./src/lib/buttonsHandlers')
 fillCurrentField(text, 'english')
 
 // for (let i = 0; i <= text.length; i++) {
-//   let string = '';
+//   let string = ''
 //   const randomIndex = generateRandomIndex(text);
 
 //   string = string.concat(...text.map((e) => e.current).join(' '));
