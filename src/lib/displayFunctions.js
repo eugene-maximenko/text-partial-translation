@@ -1,3 +1,1 @@
-const joinArrayAndDisplay = () => {
-
-}
+const joinArrayWithSpaces = (array) => array.join(" ")
