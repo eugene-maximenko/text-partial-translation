@@ -20,5 +20,5 @@ const usedIndexesArray = [];
 //   usedIndexes.push(randomIndex);
 // }
 
-console.log(translateOneMoreWord(text, 'russian'))
+// console.log(translateOneMoreWord(text, 'russian'))
 

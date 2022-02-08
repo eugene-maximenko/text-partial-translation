@@ -1,4 +1,6 @@
-function generateRandomIndex(textArray, usedIndexesArray) {
+const usedIndexesArray = []
+
+function generateRandomIndex(textArray) {
     const randomIndex = Math.floor(Math.random() * textArray.length);
 
     if (usedIndexesArray.length === textArray.length) {
@@ -6,6 +8,7 @@ function generateRandomIndex(textArray, usedIndexesArray) {
     }
 
     if (!usedIndexesArray.includes(randomIndex)) {
+        usedIndexesArray.push(randomIndex)
         return randomIndex;
     }
 

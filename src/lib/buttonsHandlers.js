@@ -11,7 +11,6 @@ const parseTextInSpecificLanguage = (text, language) => {
 
 const snapShotsArray = []
 let pointer = null
-const usedIndexesArray = []
 
 const displayTextFirstTime = (originalText, language, snapShotsArray) => {
     const textWithoutSpaces = parseTextInSpecificLanguage(text, language)
@@ -29,7 +28,7 @@ const translateOneMoreWord = (originalText, language) => {
 
         const newSubarray = [...originalSubarray]
 
-        const randomIndex = generateRandomIndex(newSubarray, usedIndexesArray)
+        const randomIndex = generateRandomIndex(newSubarray)
         const translationWord = originalText[randomIndex][language]
         newSubarray.splice(randomIndex, 1, translationWord)
 
@@ -41,6 +40,18 @@ const translateOneMoreWord = (originalText, language) => {
     }
 }
 
+const rollbackOneWord = () => {
+    if (pointer > 0) {
+        pointer--
+        const originalSubarray = snapShotsArray[pointer]
+        const joinedText = joinArrayWithSpaces(originalSubarray)
+        printText(joinedText)
+        return
+    }
+
+    throw new Error('Rollback isn\`t available because pointer <= 0')
+}
+
 displayTextFirstTime(text, 'english', snapShotsArray, pointer)
 
 translateOneMoreWord(text, 'russian')
@@ -49,6 +60,7 @@ translateOneMoreWord(text, 'russian')
 translateOneMoreWord(text, 'russian')
 translateOneMoreWord(text, 'russian')
 translateOneMoreWord(text, 'russian')
+rollbackOneWord()
 
 module.exports = {
     parseTextInSpecificLanguage,
