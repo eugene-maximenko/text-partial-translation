@@ -1,8 +1,11 @@
 "use strict";
 const path = require('path');
 const express = require('express');
+const textRouter = require('./routers/text');
 const hbs = require('hbs');
 const app = express();
+app.use(express.json());
+app.use(textRouter);
 const port = process.env.PORT || 3000;
 // Define pathes for Express config
 const publicDirectoryPath = path.join(__dirname, '../public');
@@ -14,11 +17,6 @@ app.set('views', viewsPath);
 hbs.registerPartials(partialsPath);
 // Setup static directory to serve
 app.use(express.static(publicDirectoryPath));
-// Root route
-app.get('', (req, res) => {
-    console.log('New connection to text page');
-    res.render('text');
-});
 // Listen ot port
 app.listen(port, () => {
     console.log(`Server is up on ${port}.`);
