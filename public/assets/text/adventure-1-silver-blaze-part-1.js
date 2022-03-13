@@ -1,4 +1,4 @@
-exports.text = [
+const text = [
     {
         current: '',
         english: '"I',
@@ -70,3 +70,5 @@ exports.text = [
         russian: 'однажны утром.',
     },
 ];
+
+export {text}

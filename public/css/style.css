@@ -1,4 +1,25 @@
 .text-to-translate {
-  border: 2px;
-  background-color: azure;
+  width: 300px;
+  height: 200px;
+  margin: auto;
+  background-color: gray;
+  position: absolute;
+  top: 0;
+  bottom: 250;
+  left: 0;
+  right: 0;
+  padding: 10px;
+  border: 2px solid black;
+}
+
+.buttons {
+  height: 10px;
+  position: relative;
+  left: 39%;
+  top: 500px;
+}
+
+button {
+  height: 50px;
+  width: 120px;
 }

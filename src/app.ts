@@ -19,7 +19,7 @@ hbs.registerPartials(partialsPath);
 app.use(express.static(publicDirectoryPath));
 
 // Root route
-app.get('', (req, res) => {
+app.get('', (req: any, res: any) => {
 
     console.log('New connection to text page')
 
@@ -28,5 +28,5 @@ app.get('', (req, res) => {
 
 // Listen ot port
 app.listen(port, () => {
-    console.log(`Server is up on ${ port }.`);
+    console.log(`Server is up on ${port}.`);
 });
