@@ -7,18 +7,21 @@
     <title>Document</title>
   </head>
   <body>
+    <script type='module' src='/js/text-handlers.js'></script>
     <div>
 
       <div class='text-to-translate'>
-        <p id='text'>Some text</p>
+        <p id='text'>Init text</p>
       </div>
       <div class='buttons'>
-        <button type='button'>Full English</button>
+        <button type='button' id='full-english'>Full English</button>
         <button type='button'>1 step back</button>
         <button type='button'>Translate 1 word</button>
         <button type='button'>Full Russian</button>
       </div>
-      <script type='module' src='/js/text-handlers.js'></script>
+      <script
+        src='https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js'
+      ></script>
     </div>
   </body>
 </html>
