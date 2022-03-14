@@ -71,4 +71,4 @@ const text = [
     },
 ];
 
-export {text}
+module.exports = text

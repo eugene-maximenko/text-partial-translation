@@ -1,4 +1,6 @@
 export { }
+const {constructText} = require('../lib/textHandlers')
+const englishText = require('../../db/text/texts.js')
 const express = require('express')
 const router = new express.Router()
 
@@ -11,10 +13,10 @@ router.get('', (req: any, res: any) => {
 });
 
 router.get('/text', (req: any, res: any) => {
-    console.log('Server get request for text');
 
+    console.log(constructText(englishText));
     res.json({
-        'text': 'Router text'
+        'text': constructText(englishText)
     })
 })
 
