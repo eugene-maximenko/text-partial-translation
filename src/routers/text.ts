@@ -12,7 +12,7 @@ router.get('', (req: any, res: any) => {
     res.render('text');
 });
 
-router.get('/text', (req: any, res: any) => {
+router.get('/texts', (req: any, res: any) => {
 
     console.log(constructText(englishText));
     res.json({
